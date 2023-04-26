@@ -1,0 +1,50 @@
+?<!--Esse código usa html para mostrar no servidor e javascript para resolução-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Verificar número na sequência de Fibonacci</title>
+  </head>
+  <body>
+    <h1>Verificar número na sequência de Fibonacci</h1>
+    <form>
+      <label for="num">Digite um número:</label>
+      <input type="number" id="num" name="num">
+      <button type="button" onclick="verificarFibonacci()">Verificar</button>
+    </form>
+    <p id="resultado"></p>
+    <script>
+      function fibonacci(n) {
+        /*
+         * Função que calcula a sequência de Fibonacci até o número n informado.
+         */
+        if (n === 0) {
+          return [0];
+        } else if (n === 1) {
+          return [0, 1];
+        } else {
+          const fib = [0, 1];
+          while (fib[fib.length - 1] < n) {
+            fib.push(fib[fib.length - 1] + fib[fib.length - 2]);
+          }
+          return fib;
+        }
+      }
+      
+      function verificarFibonacci() {
+        /*
+         * Função que é chamada quando o usuário clica no botão "Verificar".
+         * Verifica se o número informado pertence à sequência de Fibonacci.
+         */
+        const num = parseInt(document.getElementById("num").value);
+        const fib = fibonacci(num);
+        if (fib.includes(num)) {
+          document.getElementById("resultado").textContent = `O número ${num} pertence à sequência de Fibonacci: ${fib}`;
+        } else {
+          document.getElementById("resultado").textContent = `O número ${num} não pertence à sequência de Fibonacci: ${fib}`;
+        }
+      }
+    </script>
+  </body>
+</html>

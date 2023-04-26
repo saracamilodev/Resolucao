@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Inverter String</title>
+</head>
+<body>
+	<p>String original: <span id="original"></span></p>
+	<p>String invertida: <span id="invertida"></span></p>
+
+	<script>
+		// Define a string original
+		var strOriginal = "Hello, World!";
+
+		// Inverte a string
+		var strInvertida = "";
+		for (var i = strOriginal.length - 1; i >= 0; i--) {
+			strInvertida += strOriginal.charAt(i);
+		}
+
+		// Exibe as strings na página
+		document.getElementById("original").innerHTML = strOriginal;
+		document.getElementById("invertida").innerHTML = strInvertida;
+	</script>
+</body>
+</html>
